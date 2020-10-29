@@ -1,7 +1,7 @@
 public class InterfaceExample{
   public static interface Edible{
-  public abstract String howToEat();
-}
+    public abstract String howToEat();
+  }
   public static abstract class Animal{
     public abstract String sound();
   }
@@ -33,9 +33,10 @@ public class InterfaceExample{
     Object[] stuffInMyCloset = {new Chicken(),new Tiger(),new Apple()};
     for(int i = 0; i < stuffInMyCloset.length; i++){
       String name = stuffInMyCloset[i].getClass().getName().split("\\$")[1];
-      if(stuffInMyCloset[i] instanceof Edible)
+      if(stuffInMyCloset[i] instanceof Edible){
         System.out.println("Don't worry " + name + " is edible");
-      else
+        System.out.println("How do you eat " + name + "? " + ((Edible)stuffInMyCloset[i]).howToEat());
+      } else
         System.out.println("Wait!! Don't eat " + name);
     }
   }
