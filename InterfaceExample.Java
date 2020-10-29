@@ -32,7 +32,11 @@ public class InterfaceExample{
   public static void main(String[] args) {
     Object[] stuffInMyCloset = {new Chicken(),new Tiger(),new Apple()};
     for(int i = 0; i < stuffInMyCloset.length; i++){
-      System.out.println(stuffInMyCloset[i].getClass().getName());
+      String name = stuffInMyCloset[i].getClass().getName().split("\\$")[1];
+      if(stuffInMyCloset[i] instanceof Edible)
+        System.out.println("Don't worry " + name + " is edible");
+      else
+        System.out.println("Wait!! Don't eat " + name);
     }
   }
 }
